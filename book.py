@@ -4,6 +4,7 @@ class Book:
         self.author = author
         self.year = year 
         self.available = True #Default to available
+        self.__rating = 0
 
     def borrow(self):
         #Marks the book as borrowed if the book is available
@@ -22,3 +23,19 @@ class Book:
     def get_details(self):
          #Returns formatted book information
          return f"{self.title} by {self.author} , {self.year}"
+    
+    def set_rating(self, rating):
+        """
+        Set a rating from 0 to 5 for the book.
+        This is an example of encapsulation: rating is private
+        """
+        if 0 <= rating <= 5:
+            self.__rating = rating
+        else:
+            print("Rating must be between 0 and 5")
+
+    def get_rating(self):
+        """
+        Get the current ratings of the book
+        """
+        return self.__rating
